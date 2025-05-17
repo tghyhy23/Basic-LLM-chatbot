@@ -1,9 +1,9 @@
 import os  
 from langchain_ollama import ChatOllama  
 from langchain_core.prompts import ChatPromptTemplate  
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "gemma3:4b")
 
@@ -30,6 +30,7 @@ def get_response(user_input):
         return response  # Return the response to the caller
     except Exception as e:  # If an error occurs (e.g., AI server is down)
         return f"Error: {str(e)}"
+
 # Hàm main 
 if __name__ == "__main__":
     while True:
@@ -39,10 +40,5 @@ if __name__ == "__main__":
             break
         response = get_response(user_input)
         print("Bot:", response)
-
-
-
-
-
 
 
